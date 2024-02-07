@@ -16,6 +16,7 @@ public class TestWebSocketHandler extends TextWebSocketHandler {
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
         System.out.println("Connection closed");
+
         super.afterConnectionClosed(session, status);
     }
 
