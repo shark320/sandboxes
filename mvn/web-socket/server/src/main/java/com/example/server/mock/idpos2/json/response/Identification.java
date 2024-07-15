@@ -12,6 +12,9 @@ public class Identification {
 
     private State state;
 
+    public Identification() {
+    }
+
     public Identification(String device_name, String mac_address, String system_id, State state) {
         this.device_name = device_name;
         this.mac_address = mac_address;
