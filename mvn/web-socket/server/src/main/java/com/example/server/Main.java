@@ -48,25 +48,16 @@ public class Main {
         String finalbarcode = ChecksumValidator.calculate(
                 StringUtils.leftPad(epcObject.getCompany_prefix(), COMPANY_PREFIX_LENGTH, "0") +
                         epcObject.getItem_reference().substring(epcObject.getItem_reference().length() - ITEM_REFERENCE_LENGTH, epcObject.getItem_reference().length())
-                , CheckDigitRule.GC_1
+                , CheckDigitRule.MOD10_1
         );
-        System.out.println(epcObject.getItem_reference().substring(epcObject.getItem_reference().length() - ITEM_REFERENCE_LENGTH, epcObject.getItem_reference().length()));
+        //System.out.println(epcObject.getItem_reference().substring(epcObject.getItem_reference().length() - ITEM_REFERENCE_LENGTH, epcObject.getItem_reference().length()));
         return finalbarcode.substring(finalbarcode.length() - EAN_LENGTH, finalbarcode.length());
     }
 
     public static void main(String[] args) {
-        String testEpcHex = "30347A12301D8EF84BC77670";
-        System.out.println(testEpcHex);
-        EPC testEpc = EpcDecoder.decodeEpc(testEpcHex);
-        System.out.println(testEpc);
-        String bin_epc_default = StringUtils.leftPad("", 14, "1");
-        String company_prefix_default = "0";
-        String item_ref_default = "111";
-        String serial_number_default = "241789531760";
-        EPC epc = new EPC(bin_epc_default, company_prefix_default, item_ref_default, serial_number_default);
-        System.out.println(epc);
-        System.out.println(EpcEncoder.encodeEpc(epc));
-
-        System.out.println(getGtinNullSafe(EpcEncoder.encodeEpc(epc)));
+        String testEpcHex = "3036143BCC395C4003A82A5B";
+        String decoded = EpcDecoder.decode(testEpcHex);
+        System.out.println(decoded);
+        System.out.println(getEanWithChecksumDigit(EpcDecoder.decodeEpc(testEpcHex)));
     }
 }
