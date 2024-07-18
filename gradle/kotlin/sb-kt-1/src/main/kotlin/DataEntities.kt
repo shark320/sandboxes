@@ -1,5 +1,10 @@
 
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import nl.adaptivity.xmlutil.serialization.XmlChildrenName
+import nl.adaptivity.xmlutil.serialization.XmlElement
+import nl.adaptivity.xmlutil.serialization.XmlSerialName
+import nl.adaptivity.xmlutil.serialization.XmlValue
 import java.time.LocalDate
 
 @Serializable
@@ -11,6 +16,7 @@ data class DataRoot(
 @Serializable
 data class Data(
     val submitCategories: SubmitCategories,
+
     val submits: Submits
 )
 
@@ -29,6 +35,8 @@ data class SubmitCategoryElement(
 )
 
 @Serializable
+@SerialName("SubmitsTmp")
+@XmlSerialName("SubmitsTmp")
 data class Submits(
     val submits: List<SubmitElement>
 )
