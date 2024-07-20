@@ -3,3 +3,5 @@ mvn/web-socket/client/.idea
 */.idea
 .idea
 gradle/kotlin/sb-kt-2/gradle
+gradle/kotlin/sb-kt-2/gradlew
+gradle/kotlin/sb-kt-2/gradlew.bat

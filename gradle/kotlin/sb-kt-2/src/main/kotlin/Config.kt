@@ -4,5 +4,5 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Config(
-    val strVal: String = "test-string"
+    val map: MutableMap<String, String> = mutableMapOf()
 )

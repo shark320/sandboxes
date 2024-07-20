@@ -8,10 +8,11 @@ import kotlinx.serialization.serializer
 
 @OptIn(InternalSerializationApi::class)
 fun main() {
+    val config = Config()
+    config.map["test"] = "com.vpavlov.kt.Config"
     TomlFileWriter().encodeToFile(
-        serializer = Class.forName("com.vpavlov.kt.Config").kotlin.serializer() as SerializationStrategy<Config>,
-        value = Config(),
-        tomlFilePath = "config.toml"
+        serializer = Config.serializer(),
+        value = config,
+        tomlFilePath = "config-descriptor.toml"
     )
-    println()
 }
