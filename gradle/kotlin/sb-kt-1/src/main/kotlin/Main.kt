@@ -45,7 +45,7 @@ fun generateData(count: Int): DataRoot {
     )
 }
 
-fun main(args: Array<String>) {
+fun testDataSerialization(){
     val data = generateData(3)
     val xml = XML{
         indentString = "\t"
@@ -53,4 +53,18 @@ fun main(args: Array<String>) {
     val str = xml.encodeToString(data)
     println(str)
     println(xml.decodeFromString(DataRoot.serializer(), str))
+}
+
+fun testConfigDescriptor(){
+    val config = ConfigDescriptor()
+    config.data.add(ConfigFile("client/config", "com.vpavlov"))
+    val xml = XML{
+        indentString = "\t"
+    }
+    val str = xml.encodeToString(config)
+    println(str)
+}
+
+fun main(args: Array<String>) {
+    testConfigDescriptor()
 }

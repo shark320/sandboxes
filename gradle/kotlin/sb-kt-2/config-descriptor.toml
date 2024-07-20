@@ -1,2 +1,7 @@
-[map]
-    test = "com.vpavlov.kt.Config"
+[[pairs]]
+    first = "test.client"
+    second = "test/client"
+
+[[pairs]]
+    first = "test.client2"
+    second = "test/client2"
